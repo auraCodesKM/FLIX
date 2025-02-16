@@ -155,29 +155,46 @@ main {
 
 .movie-info {
     padding: 15px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .movie-info h3 {
-    font-size: 16px;
+    color: white;
+    font-size: 15px;
     font-weight: 500;
     margin: 0;
-    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.4;
 }
 
 .movie-rating {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(0, 0, 0, 0.85);
-    color: var(--accent-color);
-    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 8px 12px;
     border-radius: 8px;
     font-weight: 600;
-    backdrop-filter: blur(4px);
-    border: 2px solid var(--accent-color);
     z-index: 2;
+    border: 2px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rating-value {
+    color: white;
+    font-size: 16px;
+}
+
+.rating-value::after {
+    content: '/10';
+    font-size: 12px;
+    opacity: 0.7;
+    margin-left: 2px;
 }
 
 .movie p {
@@ -692,10 +709,25 @@ textarea[name="review"] {
     color: var(--text-primary);
 }
 
-/* Add hover effect for better visibility */
+/* Update hover effects */
 .movie:hover .movie-rating {
     background: var(--accent-color);
-    color: var(--primary-bg);
+}
+
+.movie:hover .rating-value {
+    color: black;
+}
+
+.movie:hover .rating-value::after {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.movie:hover .movie-info {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.movie:hover .movie-info h3 {
+    color: var(--accent-color);
 }
 
 /* Add these styles at the top of your existing CSS */

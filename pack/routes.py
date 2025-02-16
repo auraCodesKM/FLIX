@@ -76,6 +76,7 @@ def logout():
 def movie_detail(movie_id):
     movie = Movie.query.get_or_404(movie_id)
     form = RatingForm()
+    search_form = SearchForm()
     
     # Get existing rating if any
     user_rating = Rating.query.filter_by(
@@ -113,7 +114,8 @@ def movie_detail(movie_id):
     return render_template('movie_detail.html', 
                          movie=movie,
                          form=form,
-                         user_rating=user_rating)
+                         user_rating=user_rating,
+                         search_form=search_form)
 
 @app.route('/my_ratings')
 @login_req

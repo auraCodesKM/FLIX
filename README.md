@@ -1,6 +1,6 @@
 # 🎬 FLIX - Movie Rating App  
 
-![FLIX Logo](pack/assets/Flix.gif)
+<img src="pack/assets/Flix.gif" alt="FLIX Logo" width="400px">
 
 A **Flask-powered** web application where users can **browse, rate, and review movies**! 🚀 Built with **Flask, SQLAlchemy, Jinja2, and Bootstrap** to deliver a seamless user experience.  
 

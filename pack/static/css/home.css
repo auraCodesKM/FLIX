@@ -1,17 +1,29 @@
 /* styles.css */
+:root {
+    --primary-bg: #0a0a0a;
+    --secondary-bg: #141414;
+    --accent-color: #00ff9d;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --hover-color: #00cc7d;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0e0e0e;
-    color: white;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    padding-top: 80px;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1a1a1a;
+    background-color: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 15px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: fixed;
@@ -23,9 +35,10 @@ header {
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #f5c518;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent-color);
+    letter-spacing: -1px;
     z-index: 1001;
 }
 
@@ -42,7 +55,7 @@ header {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #f5c518;
+    background-color: var(--accent-color);
     margin: 5px 0;
     transition: 0.3s;
 }
@@ -66,13 +79,17 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
     white-space: nowrap;
 }
 
 nav a:hover {
-    color: #f5c518;
+    background: rgba(0, 255, 157, 0.1);
+    color: var(--accent-color);
 }
 
 main {
@@ -87,23 +104,28 @@ main {
 
 .movie-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
     padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .movie {
-    background-color: #1a1a1a;
-    border-radius: 10px;
+    background-color: var(--secondary-bg);
+    border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
 .movie:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 157, 0.15);
+    border-color: var(--accent-color);
 }
 
 .movie-poster {
@@ -122,22 +144,29 @@ main {
 }
 
 .movie-info {
-    padding: 10px;
-    background-color: #1a1a1a;
+    padding: 15px;
+    background: linear-gradient(to top, var(--secondary-bg), rgba(20, 20, 20, 0.95));
 }
 
 .movie-info h3 {
+    font-size: 15px;
+    font-weight: 500;
     margin: 0;
-    font-size: 14px;
-    color: white;
-    text-align: center;
+    color: var(--text-primary);
 }
 
 .movie-rating {
-    text-align: center;
-    color: #f5c518;
-    font-weight: bold;
-    margin-top: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.85);
+    color: var(--accent-color);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    border: 2px solid var(--accent-color);
+    z-index: 2;
 }
 
 .movie p {
@@ -149,7 +178,7 @@ main {
 
 footer {
     text-align: center;
-    background-color: #1a1a1a;
+    background-color: var(--secondary-bg);
     padding: 15px;
     margin-top: 30px;
     font-size: 14px;
@@ -167,10 +196,11 @@ footer {
 }
 
 .review-card {
-    background: #1a1a1a;
+    background: var(--secondary-bg);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 15px;
+    border: 1px solid #2a2a2a;
 }
 
 .review-header {
@@ -185,13 +215,13 @@ footer {
 }
 
 .reviewer-name {
-    color: #f5c518;
+    color: var(--accent-color);
     font-weight: bold;
 }
 
 .review-rating {
-    background: #f5c518;
-    color: black;
+    background: var(--accent-color);
+    color: var(--primary-bg);
     padding: 4px 8px;
     border-radius: 4px;
     font-weight: bold;
@@ -250,7 +280,7 @@ footer {
 
 /* Rating section styles */
 .rating-section {
-    background: #1a1a1a;
+    background: var(--secondary-bg);
     padding: 20px;
     border-radius: 10px;
     margin: 20px 0;
@@ -270,15 +300,15 @@ footer {
 .rating-stars label {
     cursor: pointer;
     padding: 8px 16px;
-    background: #333;
+    background: #1a1a1a;
     border-radius: 4px;
     color: white;
     transition: 0.3s;
 }
 
 .rating-stars input[type="radio"]:checked + label {
-    background: #f5c518;
-    color: black;
+    background: var(--accent-color);
+    color: var(--primary-bg);
 }
 
 textarea[name="review"] {
@@ -294,8 +324,8 @@ textarea[name="review"] {
 }
 
 .submit-rating {
-    background: #f5c518;
-    color: black;
+    background: var(--accent-color);
+    color: var(--primary-bg);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -303,10 +333,14 @@ textarea[name="review"] {
     font-weight: bold;
 }
 
+.submit-rating:hover {
+    background: var(--hover-color);
+}
+
 /* Responsive design */
-@media (max-width: 1024px) {
-    .movie-content {
-        grid-template-columns: 250px 1fr;
+@media (max-width: 1200px) {
+    .movie-list {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -382,9 +416,7 @@ textarea[name="review"] {
     }
 
     .movie-list {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 15px;
-        padding: 15px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .rating-card {
@@ -400,9 +432,7 @@ textarea[name="review"] {
 
 @media (max-width: 480px) {
     .movie-list {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 10px;
-        padding: 10px;
+        grid-template-columns: repeat(1, 1fr);
     }
     
     .movie p {
@@ -486,8 +516,14 @@ textarea[name="review"] {
 }
 
 .rating-value {
-    color: #f5c518;
-    font-weight: bold;
+    font-size: 16px;
+}
+
+.rating-value::after {
+    content: '/10';
+    font-size: 12px;
+    opacity: 0.8;
+    margin-left: 2px;
 }
 
 .rating-date {
@@ -728,4 +764,18 @@ textarea[name="review"] {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.movies h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+/* Add hover effect for better visibility */
+.movie:hover .movie-rating {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    border-color: var(--accent-color);
 }

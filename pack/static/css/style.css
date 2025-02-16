@@ -1,18 +1,18 @@
 /* Alert styles */
 .alert {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
     text-align: center;
 }
 
 .alert-success {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #00ff9d;
+    color: #0a0a0a;
 }
 
 .alert-error {
-    background-color: #f44336;
+    background-color: #ff3b3b;
     color: white;
 }
 
@@ -22,9 +22,9 @@
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #1a1a1a;
+    background-color: #141414;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
 }
 
 .form-group {
@@ -34,37 +34,38 @@
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    color: #f5c518;
+    color: #00ff9d;
 }
 
 .form-group input {
     width: 100%;
     padding: 8px;
-    border: 1px solid #333;
+    border: 1px solid #2a2a2a;
     border-radius: 4px;
-    background-color: #2f2f2f;
+    background-color: #1a1a1a;
     color: white;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #f5c518;
+    border-color: #00ff9d;
+    box-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
 }
 
 button[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #f5c518;
+    background-color: #00ff9d;
     border: none;
     border-radius: 4px;
-    color: black;
+    color: #0a0a0a;
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
 }
 
 button[type="submit"]:hover {
-    background-color: #e3b408;
+    background-color: #00cc7d;
 }
 
 .register-link,
@@ -75,7 +76,7 @@ button[type="submit"]:hover {
 
 .register-link a,
 .signin-link a {
-    color: #f5c518;
+    color: #00ff9d;
     text-decoration: none;
 }
 

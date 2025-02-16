@@ -1,16 +1,30 @@
+/* Add CSS variables */
+:root {
+    --primary-bg: #0a0a0a;
+    --secondary-bg: #141414;
+    --accent-color: #00ff9d;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --hover-color: #00cc7d;
+}
+
 /* IMDb Create Account Page Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-bg);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: var(--text-primary);
 }
 
 .container {
     text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
 }
 
 .logo img {
@@ -18,73 +32,91 @@ body {
     margin-bottom: 15px;
 }
 
+.logo h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    letter-spacing: -2px;
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+}
+
 .form-container {
-    background-color: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 360px;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
     text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .label {
     display: block;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     margin: 8px 0 4px;
     text-align: left;
+    color: var(--accent-color);
 }
 
 .input {
-    width: 90%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-bottom: 12px;
-    font-size: 14px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .input:focus {
-    border-color: #f5c518;
-    box-shadow: 0px 0px 5px rgba(245, 197, 24, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(0, 255, 157, 0.2);
     outline: none;
 }
 
 .button {
     width: 100%;
-    background-color: #f5c518;
-    color: black;
+    background: var(--accent-color);
+    color: var(--primary-bg);
     font-size: 16px;
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: background-color 0.3s;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
 .button:hover {
-    background-color: #e4b702;
+    background: var(--hover-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 255, 157, 0.2);
 }
 
 .terms {
     font-size: 12px;
-    color: #555;
+    color: #b3b3b3;
     margin-top: 10px;
 }
 
 .terms a {
-    color: #0066c0;
+    color: #00ff9d;
     text-decoration: none;
 }
 
@@ -100,14 +132,70 @@ hr {
 
 .signin {
     font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 16px;
 }
 
 .signin a {
-    color: #0066c0;
+    color: var(--accent-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    margin-left: 5px;
 }
 
 .signin a:hover {
     text-decoration: underline;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--text-secondary);
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.divider span {
+    padding: 0 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Alert styles */
+.alert {
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: rgba(0, 255, 157, 0.1);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.alert-error {
+    background: rgba(255, 59, 48, 0.1);
+    border: 1px solid #ff3b30;
+    color: #ff3b30;
+}
+
+/* Placeholder color */
+::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+/* Form styles */
+form {
+    width: 100%;
 }

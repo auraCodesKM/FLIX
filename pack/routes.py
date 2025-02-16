@@ -115,15 +115,15 @@ def movie_detail(movie_id):
                          form=form,
                          user_rating=user_rating)
 
-@app.route('/my-ratings')
+@app.route('/my_ratings')
 @login_req
 def my_ratings():
-    # Get all ratings for current user, ordered by most recent
-    user_ratings = Rating.query.filter_by(
-        user_id=session['user_id']
-    ).order_by(Rating.date_posted.desc()).all()
-    
-    return render_template('my_ratings.html', ratings=user_ratings)
+    search_form = SearchForm()
+    user_id = session.get('user_id')
+    ratings = Rating.query.filter_by(user_id=user_id).order_by(Rating.date_posted.desc()).all()
+    return render_template('my_ratings.html', 
+                         ratings=ratings, 
+                         search_form=search_form)
 
 @app.route('/search')
 @login_req

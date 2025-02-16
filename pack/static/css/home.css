@@ -21,9 +21,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(20, 20, 20, 0.98);
+    background: rgba(20, 20, 20, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 157, 0.1);
     padding: 15px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: fixed;
@@ -76,7 +77,7 @@ nav {
     gap: 20px;
 }
 
-nav a {
+nav .nav-link {
     color: white;
     text-decoration: none;
     font-size: 15px;
@@ -87,9 +88,15 @@ nav a {
     white-space: nowrap;
 }
 
-nav a:hover {
+nav .nav-link:hover {
     background: rgba(0, 255, 157, 0.1);
     color: var(--accent-color);
+}
+
+nav .nav-link.active {
+    background: rgba(0, 255, 157, 0.15);
+    color: var(--accent-color);
+    font-weight: 600;
 }
 
 main {
@@ -112,11 +119,14 @@ main {
 }
 
 .movie {
-    background-color: var(--secondary-bg);
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 157, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 255, 157, 0.1);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -124,8 +134,8 @@ main {
 
 .movie:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 255, 157, 0.15);
-    border-color: var(--accent-color);
+    box-shadow: 0 12px 40px rgba(0, 255, 157, 0.2);
+    border-color: rgba(0, 255, 157, 0.3);
 }
 
 .movie-poster {
@@ -145,11 +155,12 @@ main {
 
 .movie-info {
     padding: 15px;
-    background: linear-gradient(to top, var(--secondary-bg), rgba(20, 20, 20, 0.95));
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
 }
 
 .movie-info h3 {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     margin: 0;
     color: var(--text-primary);
@@ -373,14 +384,14 @@ textarea[name="review"] {
         display: block;
     }
 
-    nav a {
+    nav .nav-link {
         display: block;
         padding: 15px 20px;
         border-bottom: 1px solid #333;
         text-align: left;
     }
 
-    nav a:last-child {
+    nav .nav-link:last-child {
         border-bottom: none;
     }
 
@@ -474,209 +485,117 @@ textarea[name="review"] {
 }
 
 .my-ratings-container h1 {
-    color: #f5c518;
-    margin-bottom: 30px;
-    font-size: 2em;
+    color: var(--accent-color);
+    margin: 30px 0;
+    font-size: 32px;
+    text-align: center;
 }
 
 .ratings-grid {
     display: grid;
-    gap: 20px;
+    gap: 25px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 20px;
 }
 
 .rating-card {
-    background: #1a1a1a;
-    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 157, 0.1);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 8px 32px rgba(0, 255, 157, 0.1);
+    transition: all 0.3s ease;
+}
+
+.rating-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 255, 157, 0.2);
+    border-color: rgba(0, 255, 157, 0.3);
 }
 
 .rating-details {
-    padding: 15px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    padding: 20px;
 }
 
 .rating-details h2 {
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
-    color: #fff;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+    font-size: 18px;
 }
 
 .rating-info {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
     margin-bottom: 15px;
 }
 
 .rating-value {
+    color: var(--accent-color);
+    font-weight: 600;
     font-size: 16px;
 }
 
-.rating-value::after {
-    content: '/10';
-    font-size: 12px;
-    opacity: 0.8;
-    margin-left: 2px;
-}
-
 .rating-date {
-    color: #888;
-    font-size: 0.9em;
+    color: var(--text-secondary);
+    font-size: 14px;
 }
 
 .review-text {
-    font-size: 0.9em;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* For webkit browsers */
-    line-clamp: 3; /* Standard property */
-    max-height: 4.5em; /* Fallback for non-webkit browsers: 3 lines × 1.5 line height */
-    line-height: 1.5em;
-    text-overflow: ellipsis;
-}
-
-.rating-actions {
-    margin-top: 15px;
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .edit-button {
     display: inline-block;
     padding: 8px 16px;
-    background-color: #f5c518;
-    color: #000;
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .edit-button:hover {
-    background-color: #e3b408;
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
 }
 
 .no-ratings {
     text-align: center;
     padding: 40px;
-    background: #1a1a1a;
-    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 157, 0.1);
+    border-radius: 12px;
+    margin: 20px;
 }
 
 .no-ratings p {
+    color: var(--text-secondary);
     margin-bottom: 20px;
-    color: #888;
-    font-size: 1.2em;
+    font-size: 18px;
 }
 
 .browse-movies {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #f5c518;
-    color: #000;
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
     text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .browse-movies:hover {
-    background-color: #e3b408;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .my-ratings-container {
-        padding: 15px;
-    }
-
-    .my-ratings-container h1 {
-        font-size: 1.5em;
-        margin-bottom: 20px;
-    }
-
-    .ratings-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .rating-card {
-        flex-direction: row;
-        max-height: 200px;
-    }
-
-    .movie-poster {
-        width: 133px; /* Maintain 2:3 aspect ratio */
-        padding-top: 200px;
-        flex-shrink: 0;
-    }
-
-    .rating-details {
-        padding: 10px;
-    }
-
-    .rating-details h2 {
-        font-size: 1.1em;
-    }
-
-    .rating-info {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .review-text {
-        font-size: 0.9em;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3; /* For webkit browsers */
-        line-clamp: 3; /* Standard property */
-        max-height: 4.5em; /* Fallback for non-webkit browsers: 3 lines × 1.5 line height */
-        line-height: 1.5em;
-        text-overflow: ellipsis;
-    }
-}
-
-@media (max-width: 480px) {
-    .rating-card {
-        flex-direction: column;
-        max-height: none;
-    }
-
-    .movie-poster {
-        width: 100%;
-        padding-top: 150%;
-    }
-
-    .rating-details {
-        padding: 12px;
-    }
-
-    .rating-info {
-        flex-direction: row;
-    }
-
-    .review-text {
-        font-size: 0.9em;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4; /* For webkit browsers */
-        line-clamp: 4; /* Standard property */
-        max-height: 6em; /* Fallback for non-webkit browsers: 4 lines × 1.5 line height */
-        line-height: 1.5em;
-        text-overflow: ellipsis;
-    }
-
-    .edit-button {
-        width: 100%;
-        text-align: center;
-    }
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
 }
 
 /* Add these styles to your existing CSS */
@@ -694,14 +613,14 @@ textarea[name="review"] {
     padding: 10px 15px;
     border: none;
     border-radius: 20px;
-    background-color: #2f2f2f;
-    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
     font-size: 16px;
 }
 
 .search-form input[type="text"]:focus {
     outline: none;
-    background-color: #3f3f3f;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .search-results h2 {
@@ -777,5 +696,36 @@ textarea[name="review"] {
 .movie:hover .movie-rating {
     background: var(--accent-color);
     color: var(--primary-bg);
-    border-color: var(--accent-color);
+}
+
+/* Add these styles at the top of your existing CSS */
+.spline-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: var(--primary-bg);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.spline-container iframe {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, 
+                              rgba(0,0,0,0) 0%, 
+                              rgba(0,0,0,0.4) 100%);
 }

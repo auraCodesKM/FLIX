@@ -1,0 +1,85 @@
+/* Alert styles */
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.alert-error {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Form styles update */
+.login-container,
+.register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #f5c518;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #2f2f2f;
+    color: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #f5c518;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #f5c518;
+    border: none;
+    border-radius: 4px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #e3b408;
+}
+
+.register-link,
+.signin-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-link a,
+.signin-link a {
+    color: #f5c518;
+    text-decoration: none;
+}
+
+.register-link a:hover,
+.signin-link a:hover {
+    text-decoration: underline;
+} 

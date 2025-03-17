@@ -40,7 +40,7 @@ A **Flask-powered** web application where users can **browse, rate, and review m
 ```bash
 ✅ Step 1: Clone the Repository  
 
-git clone <your-repository-url>
+git clone https://github.com/auraCodesKM/FLIX.git
 cd Flask-Project
 
 ✅ Step 2: Create a Virtual Environment

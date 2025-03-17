@@ -54,7 +54,7 @@ pip install -r requirements.txt
 
 ✅ Step 4: Run the Application
 
-python run.py
+cle
 
 💡 The app will be live at: http://localhost:5000
 

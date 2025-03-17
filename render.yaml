@@ -3,9 +3,11 @@ services:
     name: flix-app
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn pack:app
+    startCommand: PYTHONPATH=$PYTHONPATH:. gunicorn pack:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.0
       - key: FLASK_ENV
-        value: production 
+        value: production
+      - key: PYTHONPATH
+        value: . 
